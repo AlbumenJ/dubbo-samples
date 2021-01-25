@@ -79,6 +79,11 @@
             <version>${spring-boot-starter-test.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.ecwid.consul</groupId>
+            <artifactId>consul-api</artifactId>
+            <version>1.4.5</version>
+        </dependency>
     </dependencies>
 
     <build>
