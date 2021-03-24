@@ -52,7 +52,7 @@ public class DefaultDemoService implements DemoService {
 
     private void await() {
         try {
-            long timeInMillisToWait = costTimeRandom.nextInt(500);
+            long timeInMillisToWait = costTimeRandom.nextInt(200);
             Thread.sleep(timeInMillisToWait);
             logger.info("execution time : " + timeInMillisToWait + " ms.");
         } catch (InterruptedException e) {

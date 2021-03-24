@@ -34,5 +34,6 @@ public class DubboAutoConfigurationProviderBootstrap {
 //        new SpringApplicationBuilder(DubboAutoConfigurationProviderBootstrap.class)
 //                .run(args);
         SpringApplication.run(DubboAutoConfigurationProviderBootstrap.class,args);
+        System.out.println("dubbo service started");
     }
 }
