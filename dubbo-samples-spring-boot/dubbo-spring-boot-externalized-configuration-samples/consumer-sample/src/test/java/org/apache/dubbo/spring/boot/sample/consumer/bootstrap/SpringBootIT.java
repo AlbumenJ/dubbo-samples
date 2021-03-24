@@ -14,25 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.dubbo.spring.boot.sample.provider.bootstrap;
 
-import org.apache.dubbo.spring.boot.sample.provider.service.DefaultDemoService;
+package org.apache.dubbo.spring.boot.sample.consumer.bootstrap;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-/**
- * Dubbo Externalized Configuration Provider Bootstrap
- *
- * @see DefaultDemoService
- * @since 2.7.0
- */
-@EnableAutoConfiguration
-public class DubboExternalizedConfigurationProviderBootstrap {
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = DubboExternalizedConfigurationConsumerBootstrap.class)
+public class SpringBootIT {
+    @Autowired
+    private DubboExternalizedConfigurationConsumerBootstrap bootstrap;
 
-    public static void main(String[] args) {
-        new SpringApplicationBuilder(DubboExternalizedConfigurationProviderBootstrap.class)
-                .run(args);
-        System.out.println("dubbo service started");
+    @Test
+    public void test() throws Exception {
+        String result = bootstrap.sayHello("Spring Boot");
+        Assert.assertEquals("[dubbo-externalized-configuration-provider-sample] : Hello, Spring Boot", result);
     }
 }
