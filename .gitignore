@@ -56,3 +56,5 @@ coverage.txt
 
 test/jobs
 version-matrix.txt
+
+.flattened-pom.xml
