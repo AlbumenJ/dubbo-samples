@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>dubbo-spring-boot-sample-api</module>
         <module>dubbo-spring-boot-auto-configure-samples</module>
         <module>dubbo-spring-boot-externalized-configuration-samples</module>
         <module>dubbo-spring-boot-registry-samples</module>

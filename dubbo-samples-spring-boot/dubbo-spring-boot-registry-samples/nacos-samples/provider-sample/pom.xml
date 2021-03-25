@@ -51,12 +51,6 @@
             <artifactId>nacos-client</artifactId>
             <version>${nacos.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-spring-boot-sample-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>
