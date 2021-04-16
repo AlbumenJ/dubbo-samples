@@ -42,6 +42,12 @@
             <version>${dubbo.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-dependencies-zookeeper</artifactId>
+            <type>pom</type>
+        </dependency>
+
     </dependencies>
 
     <build>

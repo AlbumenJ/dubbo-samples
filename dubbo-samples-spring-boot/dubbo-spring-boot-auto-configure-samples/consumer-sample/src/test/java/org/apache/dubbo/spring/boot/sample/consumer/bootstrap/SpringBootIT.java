@@ -32,7 +32,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SpringBootIT {
     @DubboReference(
             version = "1.0.0",
-            url = "dubbo://127.0.0.1:12345",
             timeout = 100,
             methods = {
                     @Method(name = "sayHello", timeout = 300)

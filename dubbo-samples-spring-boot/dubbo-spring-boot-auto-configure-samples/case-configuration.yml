@@ -14,13 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-# local call through injvm, start test container only
 services:
+  zookeeper:
+    image: zookeeper:${zookeeper_version}
+
   dubbo-spring-boot-auto-configure-samples-provider:
     type: app
     basedir: provider-sample
     mainClass: org.apache.dubbo.spring.boot.sample.provider.bootstrap.DubboAutoConfigurationProviderBootstrap
+    systemProps:
+      - zookeeper.address=zookeeper
+      - zookeeper.port=2181
+    waitPortsBeforeRun:
+      - zookeeper:2181
     checkPorts:
       - 12345
     checkLog: "dubbo service started"
@@ -30,3 +36,11 @@ services:
     basedir: consumer-sample
     tests:
       - "**/*IT.class"
+    systemProps:
+      - zookeeper.address=zookeeper
+      - zookeeper.port=2181
+    waitPortsBeforeRun:
+      - zookeeper:2181
+      - dubbo-spring-boot-auto-configure-samples-provider:12345
+    depends_on:
+      - dubbo-spring-boot-auto-configure-samples-provider

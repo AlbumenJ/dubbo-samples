@@ -39,7 +39,6 @@ public class DubboAutoConfigurationConsumerBootstrap {
 
     @DubboReference(
             version = "1.0.0",
-            url = "dubbo://127.0.0.1:12345",
             timeout = 100,
             methods = {
                     @Method(name = "sayHello", timeout = 300)
