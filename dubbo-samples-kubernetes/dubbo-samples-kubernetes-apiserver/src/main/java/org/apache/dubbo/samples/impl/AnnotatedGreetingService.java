@@ -19,16 +19,17 @@
 
 package org.apache.dubbo.samples.impl;
 
+import org.apache.dubbo.common.utils.NetUtils;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.config.annotation.Service;
 import org.apache.dubbo.samples.api.GreetingService;
 
-@DubboService(version = "1.0.0")
+@DubboService(version = "1.0.0", parameters = {"user-version", "v2"})
 public class AnnotatedGreetingService implements GreetingService {
 
     public String sayHello(String name) {
         System.out.println("greeting service received: " + name);
-        return "hello, " + name;
+        return "hello, " + name + " ip:" + NetUtils.getLocalHost();
     }
 
 }

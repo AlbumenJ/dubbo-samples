@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 @Component("annotatedConsumer")
 public class GreetingServiceConsumer {
 
-    @DubboReference(version = "1.0.0", services = {"kubernetes-apiserver-demo-provider"})
+    @DubboReference(version = "1.0.0", providedBy = {"kubernetes-apiserver-demo-provider"})
     private GreetingService greetingService;
 
     public String doSayHello(String name) {

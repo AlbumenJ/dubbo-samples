@@ -20,6 +20,7 @@
 package org.apache.dubbo.samples;
 
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
+import org.apache.dubbo.rpc.RpcContext;
 import org.apache.dubbo.samples.action.GreetingServiceConsumer;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -28,12 +29,17 @@ import org.springframework.context.annotation.PropertySource;
 
 public class ConsumerBootstrap {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConsumerConfiguration.class);
         context.start();
         GreetingServiceConsumer greetingServiceConsumer = context.getBean(GreetingServiceConsumer.class);
-        String hello = greetingServiceConsumer.doSayHello("Kubernetes Api Server");
-        System.out.println("result: " + hello);
+        while (true) {
+            try {
+                String hello = greetingServiceConsumer.doSayHello("Kubernetes Api Server");
+                System.out.println("result: " + hello);
+            }catch (Throwable ignore) {}
+            Thread.sleep(1000);
+        }
     }
 
     @Configuration

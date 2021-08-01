@@ -22,8 +22,18 @@ package org.apache.dubbo.samples.impl;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.samples.api.GreetingService;
 
+import org.yaml.snakeyaml.tokens.DirectiveToken;
+
+import javax.naming.spi.ObjectFactory;
+import java.rmi.server.RemoteObject;
+import java.security.SignedObject;
+
 @DubboService(version = "1.0.0")
 public class AnnotatedGreetingService implements GreetingService {
+    @Override
+    public ObjectFactory test() {
+        return new RemoteObject();
+    }
 
     public String sayHello(String name) {
         System.out.println("greeting service received: " + name);

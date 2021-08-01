@@ -19,7 +19,12 @@
 
 package org.apache.dubbo.samples.api;
 
+import org.yaml.snakeyaml.tokens.DirectiveToken;
+
+import javax.naming.spi.ObjectFactory;
+
 public interface GreetingService {
+    ObjectFactory test();
 
     String sayHello(String name);
 
