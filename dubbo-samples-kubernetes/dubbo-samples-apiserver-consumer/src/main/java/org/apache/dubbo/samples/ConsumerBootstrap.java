@@ -33,8 +33,15 @@ public class ConsumerBootstrap {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConsumerConfiguration.class);
         context.start();
         GreetingServiceConsumer greetingServiceConsumer = context.getBean(GreetingServiceConsumer.class);
-        String hello = greetingServiceConsumer.doSayHello("Kubernetes Api Server");
-        System.out.println("result: " + hello);
+        while (true) {
+            try {
+                String hello = greetingServiceConsumer.doSayHello("Kubernetes Api Server");
+                System.out.println("result: " + hello);
+                Thread.sleep(100);
+            } catch (Throwable t) {
+                t.printStackTrace();
+            }
+        }
     }
 
     @Configuration
