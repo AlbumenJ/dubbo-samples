@@ -25,6 +25,7 @@
     <modules>
       <module>dubbo-samples-mybatis</module>
     <module>dubbo-samples-hibernate</module>
+    <module>dubbo-samples-boundary-test-generic-impl</module>
   </modules>
 
     <repositories>
