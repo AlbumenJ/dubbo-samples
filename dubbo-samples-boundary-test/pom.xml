@@ -35,6 +35,7 @@
         <module>dubbo-samples-router-chain-switch</module>
         <module>dubbo-samples-empty-protection</module>
         <module>dubbo-samples-empty-protection-nacos</module>
+        <module>dubbo-samples-nacos-multi-register</module>
     </modules>
 
     <repositories>

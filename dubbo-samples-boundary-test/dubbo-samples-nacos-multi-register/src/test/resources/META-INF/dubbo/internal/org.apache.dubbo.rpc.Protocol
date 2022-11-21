@@ -1,0 +1,3 @@
+dubbo1=org.apache.dubbo.rpc.protocol.dubbo.DubboProtocol
+dubbo2=org.apache.dubbo.rpc.protocol.dubbo.DubboProtocol
+dubbo3=org.apache.dubbo.rpc.protocol.dubbo.DubboProtocol
