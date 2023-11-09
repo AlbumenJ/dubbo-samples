@@ -17,24 +17,20 @@
 
 package org.apache.dubbo.samples.tri.unary;
 
-import org.apache.dubbo.config.ReferenceConfig;
-
-import java.util.Date;
-
 public class TriUnaryClient {
     public static void main(String[] args) throws Exception {
-        ReferenceConfig<Greeter> ref = new ReferenceConfig<>();
-        ref.setInterface(Greeter.class);
-        ref.setUrl("tri://127.0.0.1:50051");
-        Greeter greeter = ref.get();
-
-        while (true) {
-            GreeterReply reply = greeter.greet(
-                    GreeterRequest.newBuilder()
-                            .setName("world")
-                            .build());
-            System.out.println(new Date() + " Client received " + reply);
-            Thread.sleep(1000);
-        }
+//        ReferenceConfig<Greeter> ref = new ReferenceConfig<>();
+//        ref.setInterface(Greeter.class);
+//        ref.setUrl("tri://127.0.0.1:50051");
+//        Greeter greeter = ref.get();
+//
+//        while (true) {
+//            GreeterReply reply = greeter.greet(
+//                    GreeterRequest.newBuilder()
+//                            .setName("world")
+//                            .build());
+//            System.out.println(new Date() + " Client received " + reply);
+//            Thread.sleep(1000);
+//        }
     }
 }
