@@ -7,7 +7,7 @@
       "extensions": ["streetsidesoftware.code-spell-checker"]
     }
   },
-  "postCreateCommand": [
+  "postStartCommand": [
     "./mvnw clean compile exec:java -pl 1-basic/dubbo-samples-idl -Dexec.mainClass=\"org.apache.dubbo.samples.tri.unary.TriUnaryServer\" > 1-basic/dubbo-samples-idl/server.log &",
     "code 1-basic/dubbo-samples-idl/README.md"
   ],
