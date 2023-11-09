@@ -5,11 +5,15 @@
   "customizations": {
     "vscode": {
       "extensions": ["streetsidesoftware.code-spell-checker"]
+    },
+    "codespaces": {
+      "openFiles": [
+        "1-basic/dubbo-samples-idl/README.md"
+      ]
     }
   },
   "postStartCommand": [
     "./mvnw clean compile exec:java -pl 1-basic/dubbo-samples-idl -Dexec.mainClass=\"org.apache.dubbo.samples.tri.unary.TriUnaryServer\" > 1-basic/dubbo-samples-idl/server.log &",
-    "code 1-basic/dubbo-samples-idl/README.md"
   ],
   "forwardPorts": [50051],
   "waitFor": "postStartCommand"
