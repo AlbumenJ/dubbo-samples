@@ -17,55 +17,24 @@
 
 package org.apache.dubbo.samples.tri.unary;
 
-import org.apache.dubbo.common.constants.CommonConstants;
-import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;
-import org.apache.dubbo.config.RegistryConfig;
-import org.apache.dubbo.config.bootstrap.DubboBootstrap;
-import org.apache.dubbo.samples.tri.unary.util.TriSampleConstants;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.util.concurrent.CompletableFuture;
+import java.util.Date;
 
 public class TriUnaryClient {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TriUnaryClient.class);
-
-    public static void main(String[] args) throws IOException {
-        DubboBootstrap bootstrap = DubboBootstrap.getInstance();
+    public static void main(String[] args) throws Exception {
         ReferenceConfig<Greeter> ref = new ReferenceConfig<>();
         ref.setInterface(Greeter.class);
-        ref.setProtocol(CommonConstants.TRIPLE);
-        ref.setProxy(CommonConstants.NATIVE_STUB);
-        ref.setTimeout(3000);
-
-        ApplicationConfig applicationConfig = new ApplicationConfig("tri-stub-consumer");
-        applicationConfig.setQosEnable(false);
-        bootstrap.application(applicationConfig).reference(ref).registry(new RegistryConfig(TriSampleConstants.ZK_ADDRESS)).start();
+        ref.setUrl("tri://127.0.0.1:50051");
         Greeter greeter = ref.get();
 
-        //sync
-        unarySync(greeter);
-
-        //async
-        unaryAsync(greeter);
-    }
-
-    private static void unarySync(Greeter greeter) {
-        LOGGER.info("{} Start unary", "tri-unary-client");
-        final GreeterReply reply = greeter.greet(GreeterRequest.newBuilder().setName("name").build());
-        LOGGER.info("{} Unary reply <-{}", "tri-unary-client", reply);
-    }
-
-    private static void unaryAsync(Greeter greeter) {
-        CompletableFuture<GreeterReply> greetAsync = greeter.greetAsync(GreeterRequest.newBuilder().setName("name").build());
-        greetAsync.whenComplete((result, exception) -> {
-            if (exception != null) {
-                exception.printStackTrace();
-            } else {
-                System.out.println("greet async: " + result.getMessage());
-            }
-        });
+        while (true) {
+            GreeterReply reply = greeter.greet(
+                    GreeterRequest.newBuilder()
+                            .setName("world")
+                            .build());
+            System.out.println(new Date() + " Client received " + reply);
+            Thread.sleep(1000);
+        }
     }
 }

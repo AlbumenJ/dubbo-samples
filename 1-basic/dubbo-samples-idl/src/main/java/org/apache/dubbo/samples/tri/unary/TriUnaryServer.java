@@ -17,32 +17,20 @@
 
 package org.apache.dubbo.samples.tri.unary;
 
-import org.apache.dubbo.common.constants.CommonConstants;
-import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ProtocolConfig;
-import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.ServiceConfig;
-import org.apache.dubbo.config.bootstrap.DubboBootstrap;
-import org.apache.dubbo.samples.tri.unary.util.EmbeddedZooKeeper;
-import org.apache.dubbo.samples.tri.unary.util.TriSampleConstants;
 
-import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
 
 public class TriUnaryServer {
 
-    public static void main(String[] args) throws IOException {
-        new EmbeddedZooKeeper(TriSampleConstants.ZK_PORT, false).start();
+    public static void main(String[] args) throws Exception {
         ServiceConfig<Greeter> service = new ServiceConfig<>();
         service.setInterface(Greeter.class);
-        service.setRef(new GreeterImpl("tri-stub"));
-        ApplicationConfig applicationConfig = new ApplicationConfig("tri-stub-server");
-        applicationConfig.setQosEnable(false);
-        DubboBootstrap bootstrap = DubboBootstrap.getInstance();
-        bootstrap.application(applicationConfig)
-                .registry(new RegistryConfig(TriSampleConstants.ZK_ADDRESS))
-                .protocol(new ProtocolConfig(CommonConstants.TRIPLE, TriSampleConstants.SERVER_PORT))
-                .service(service)
-                .start();
-        System.out.println("Dubbo triple unary server started, port=" + TriSampleConstants.SERVER_PORT);
+        service.setProtocol(new ProtocolConfig("tri"));
+        service.setRef(new GreeterImpl());
+        service.export();
+        System.out.println("Dubbo triple unary server started, port=50051");
+        new CountDownLatch(1).await();
     }
 }
