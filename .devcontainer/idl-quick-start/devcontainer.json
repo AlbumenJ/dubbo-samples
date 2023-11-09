@@ -21,10 +21,7 @@
       "exec:java",
       "-pl",
       "1-basic/dubbo-samples-idl",
-      "-Dexec.mainClass=\"org.apache.dubbo.samples.tri.unary.TriUnaryServer\"",
-      ">",
-      "1-basic/dubbo-samples-idl/server.log",
-      " &"
+      "-Dexec.mainClass=\"org.apache.dubbo.samples.tri.unary.TriUnaryServer\""
     ],
   },
   "forwardPorts": [
