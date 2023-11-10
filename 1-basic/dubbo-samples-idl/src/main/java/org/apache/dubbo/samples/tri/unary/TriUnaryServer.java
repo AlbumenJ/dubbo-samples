@@ -30,7 +30,11 @@ public class TriUnaryServer {
         service.setProtocol(new ProtocolConfig("tri"));
         service.setRef(new GreeterImpl());
         service.export();
-        System.out.println("Dubbo triple unary server started, port=50051");
+        System.out.println("\n\n\n\n\n\n\n\n\n==============\n\n" +
+                "Dubbo triple unary server started, now you can start your triple client or invoke " +
+                "[>>>> curl http://127.0.0.1:50051/org.apache.dubbo.samples.tri.unary.Greeter/greet/ " +
+                "--header \"Content-Type: application/json\" --data '{\"name\": \"Dubbo\"}' <<<<] directly." +
+                "\n\n==============\n");
         new CountDownLatch(1).await();
     }
 }

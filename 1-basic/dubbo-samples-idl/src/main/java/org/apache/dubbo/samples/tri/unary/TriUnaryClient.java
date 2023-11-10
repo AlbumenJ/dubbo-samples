@@ -33,7 +33,9 @@ public class TriUnaryClient {
                     GreeterRequest.newBuilder()
                             .setName("world")
                             .build());
-            System.out.println(new Date() + " Client received " + reply);
+            System.out.println("\n\n\n\n\n\n\n\n\n==============\n\n" +
+                    new Date() + " Client received " + reply +
+                    "\n==============\n");
             Thread.sleep(1000);
         }
     }

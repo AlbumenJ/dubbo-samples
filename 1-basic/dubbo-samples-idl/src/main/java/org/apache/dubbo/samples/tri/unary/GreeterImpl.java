@@ -23,7 +23,9 @@ public class GreeterImpl extends DubboGreeterTriple.GreeterImplBase {
 
     @Override
     public GreeterReply greet(GreeterRequest request) {
-        System.out.println(new Date() + " Server received greet request " + request);
+        System.out.println("\n\n\n\n\n\n\n\n\n==============\n\n" +
+                new Date() + " Server received greet request " + request +
+                "\n==============\n");
         return GreeterReply.newBuilder()
                 .setMessage("hello," + request.getName())
                 .build();
