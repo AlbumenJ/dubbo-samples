@@ -2,44 +2,67 @@
 
 This example shows the basic usage of Triple protocol with a typical request-response model demo that uses IDL as the method of defining Dubbo service.
 
-As described in [the Triple protocol documentation](https://dubbo.apache.org/zh-cn/overview/reference/protocols/triple/), Dubbo triple protocol is a better gRPC implementation which can be accessed by cURL and web browsers directly.
+## Start Server
 
-More usages of Triple protocol can be found here:
-* [Streaming RPCs](../../2-advanced/dubbo-samples-triple-streaming/)
-* [Interoperability with standard gRPC clients and servers](../../2-advanced/dubbo-samples-triple-grpc/)
-* [Triple without Protobuf (no IDL mode)](../../2-advanced/dubbo-samples-triple-no-idl/)
-* [Using triple with other languages and browser](https://dubbo.apache.org/zh-cn/overview/mannual/)
-
-## Run The Demo
-Detailed explanation of this demo can be found [here](https://dubbo.apache.org/zh-cn/overview/quickstart/rpc/java/).
-
-Make sure you are in `dubbo-samples-triple-unary` before running the following commands.
+**NOTE: This step has been automatically done if you are in GitHub CodeSpace**
 
 ```shell
-mvn clean compile #Compile and generate code
+bash 1-basic/dubbo-samples-triple-idl/launch-server.sh
 ```
 
-### Start server
-```shell
-$ mvn compile exec:java -Dexec.mainClass="org.apache.dubbo.samples.tri.unary.TriUnaryServer"
-```
+What this script does is to start a triple server with a simple service `org.apache.dubbo.samples.tri.unary.Greeter` defined in `src/main/proto/greeter.proto`.
 
-### Start Client
+## Start Client
 
 There are two ways to test the server works as expected:
 * Standard HTTP tools like cURL.
 * Dubbo sdk client.
 
-#### cURL
+### cURL in Terminal
+
 ```shell
 curl \
     --header "Content-Type: application/json" \
-    --data '{"name": "Dubbo"}' \
+    --data '{"name": "Dubbo From cURL"}' \
     http://localhost:50052/org.apache.dubbo.samples.tri.unary.Greeter/greet/
 ```
 
-#### Start client
+And you will see the response:
+    
+```json
+{
+  "message": "hello,Dubbo From cURL"
+}
+```
+
+### cURL in your local machine
+
 ```shell
-$ mvn compile exec:java -Dexec.mainClass="org.apache.dubbo.samples.tri.unary.TriUnaryClient"
+curl \
+    --header "Content-Type: application/json" \
+    --data '{"name": "Dubbo From cURL"}' \
+    https://<CodeSpace Endpoint>/org.apache.dubbo.samples.tri.unary.Greeter/greet/
+```
+
+And you will see the response:
+
+```json
+{
+  "message": "hello,Dubbo From cURL"
+}
+```
+
+### Start client
+
+```shell
+bash 1-basic/dubbo-samples-triple-idl/launch-client.sh
+```
+
+What this script does is to start a triple client with a simple service `org.apache.dubbo.samples.tri.unary.Greeter` defined in `src/main/proto/greeter.proto`.
+
+And you will see the response:
+
+```
+hello,Dubbo From Client
 ```
 
