@@ -9,8 +9,10 @@ This example shows the basic usage of Triple protocol with a typical request-res
 This step has been automatically done if you are in GitHub CodeSpace.
 
 ```shell
-$ bash 1-basic/dubbo-samples-triple-idl/launch-server.sh
+$ bash 1-basic/dubbo-samples-idl/launch-server.sh
 ```
+
+![server-started](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-server-started.png)
 
 ## Start Client
 
@@ -37,6 +39,8 @@ And you will see the response:
 }
 ```
 
+![curl-terminal](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-curl-terminal.png)
+
 ### cURL in your local machine
 
 Also, you can even use cURL to send a request to this **remote** code space server with the endpoint provided by GitHub CodeSpace **where ever you are**:
@@ -60,12 +64,15 @@ Later you will see the response in your local machine:
 }
 ```
 
+![curl-remote](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-curl-remote.png)
+
+
 ### Start client
 
 Not only cURL, you can also use Dubbo SDK client to send a request to the server:
 
 ```shell
-$ bash 1-basic/dubbo-samples-triple-idl/launch-client.sh
+$ bash 1-basic/dubbo-samples-idl/launch-client.sh
 ```
 
 What this script does is to start a triple client with a simple service `org.apache.dubbo.samples.tri.unary.Greeter` defined in `src/main/proto/greeter.proto`.
@@ -75,6 +82,8 @@ And you will see the response:
 ```
 hello,Dubbo From Client
 ```
+
+![sdk](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-sdk.png)
 
 # How it works
 
