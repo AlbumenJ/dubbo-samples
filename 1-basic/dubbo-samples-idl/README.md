@@ -50,7 +50,7 @@ $ curl \
 
 Before you run this command, you need to set the 50051 port in the GitHub CodeSpace to be public accessible. You can do this like below:
 
-![]()
+![Publicise](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-github-codespace-public.png)
 
 Later you will see the response in your local machine:
 
