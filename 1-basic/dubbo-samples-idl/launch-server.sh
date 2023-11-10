@@ -15,4 +15,6 @@
 # limitations under the License.
 
 cd `dirname -- "$0"`
+sed -i "s/<CodeSpace Endpoint>/$CODESPACE_NAME-50051.app.github.dev/g" README.md
+code README.md
 ../../mvnw clean compile exec:java -Dexec.mainClass="org.apache.dubbo.samples.tri.unary.TriUnaryServer"

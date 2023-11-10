@@ -12,20 +12,11 @@
         }
       }
     },
-//    "codespaces": {
-//      "openFiles": [
-//        "1-basic/dubbo-samples-idl/README.md"
-//      ]
-//    }
   },
   "postAttachCommand": {
     "server": [
       "1-basic/dubbo-samples-idl/launch-server.sh"
-    ],
-    "init-readme": [
-      "code",
-      "1-basic/dubbo-samples-idl/README.md"
-    ],
+    ]
   },
   "forwardPorts": [
     50051
