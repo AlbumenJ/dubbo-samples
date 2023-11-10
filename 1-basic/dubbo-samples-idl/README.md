@@ -12,7 +12,7 @@ This step has been automatically done if you are in GitHub CodeSpace.
 $ bash 1-basic/dubbo-samples-idl/launch-server.sh
 ```
 
-![server-started](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-server-started.png)
+![server-started](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-server-started.jpg)
 
 ## Start Client
 
@@ -32,14 +32,14 @@ $ curl \
 ```
 
 And you will see the response:
-    
+
 ```json
 {
   "message": "hello,Dubbo From cURL"
 }
 ```
 
-![curl-terminal](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-curl-terminal.png)
+![curl-terminal](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-curl-terminal.jpg)
 
 ### cURL in your local machine
 
@@ -49,7 +49,7 @@ Also, you can even use cURL to send a request to this **remote** code space serv
 $ curl \
     --header "Content-Type: application/json" \
     --data '{"name": "Dubbo From cURL"}' \
-    https://<CodeSpace Endpoint>/org.apache.dubbo.samples.tri.unary.Greeter/greet/
+    https://silver-system-qr479qwpxx29666-50051.app.github.dev/org.apache.dubbo.samples.tri.unary.Greeter/greet/
 ```
 
 Before you run this command, you need to set the 50051 port in the GitHub CodeSpace to be public accessible. You can do this like below:
@@ -64,7 +64,7 @@ Later you will see the response in your local machine:
 }
 ```
 
-![curl-remote](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-curl-remote.png)
+![curl-remote](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-curl-remote.jpg)
 
 
 ### Start client
@@ -83,7 +83,7 @@ And you will see the response:
 hello,Dubbo From Client
 ```
 
-![sdk](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-sdk.png)
+![sdk](https://dubbo.apache.org/imgs/docs3-v2/java-sdk/quickstart/idl-directly-sdk.jpg)
 
 # How it works
 
